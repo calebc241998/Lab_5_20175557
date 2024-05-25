@@ -5,4 +5,10 @@
     <string name="username" />
     <string name="edit_task" />
     <string name="add_task" />
+    <string name="delete_task" />
+    <string-array name="importance_levels">
+        <item>High</item>
+        <item>Default</item>
+        <item>Low</item>
+    </string-array>
 </resources>

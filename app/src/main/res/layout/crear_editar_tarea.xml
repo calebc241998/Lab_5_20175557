@@ -58,4 +58,9 @@
         app:layout_constraintTop_toBottomOf="@id/textViewDueTime"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="16dp" />
+    <Spinner
+        android:id="@+id/spinnerImportance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/importance_levels" />
 </androidx.constraintlayout.widget.ConstraintLayout>

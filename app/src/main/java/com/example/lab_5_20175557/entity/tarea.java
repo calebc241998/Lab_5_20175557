@@ -9,18 +9,27 @@ public class tarea implements Serializable {
     private String descripcion;
     private String fecha_aviso;
     private String hora_aviso;
+    private int importancia;  // New field
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
 
-    public tarea(String titulo, String descripcion, String fecha_aviso, String hora_aviso) {
+    public tarea(String titulo, String descripcion, String fecha_aviso, String hora_aviso, int importancia) {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.fecha_aviso = fecha_aviso;
         this.hora_aviso = hora_aviso;
+        this.importancia = importancia;
     }
 
+    public int getImportancia() {
+        return importancia;
+    }
+
+    public void setImportancia(int importancia) {
+        this.importancia = importancia;
+    }
     public void setId(int id) {
         this.id = id;
     }

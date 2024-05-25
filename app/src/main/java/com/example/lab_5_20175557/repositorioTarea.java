@@ -6,7 +6,12 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.lab_5_20175557.entity.tarea;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class repositorioTarea {
     private Application application;
@@ -20,8 +25,27 @@ public class repositorioTarea {
 
     private void cargarTarea() {
         List<tarea> tasks = JsonUtil.loadTasks(application.getApplicationContext());
-        allTasks.postValue(tasks);
+        long currentTime = System.currentTimeMillis();
+        List<tarea> validTasks = new ArrayList<>();
+
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.getDefault());
+
+        for (tarea task : tasks) {
+            try {
+                Date date = dateFormat.parse(task.getFecha_aviso() + " " + task.getHora_aviso());
+                if (date != null && date.getTime() >= currentTime) {
+                    validTasks.add(task);
+                }
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+
+        // Save the valid tasks back to storage
+        JsonUtil.saveTasks(application.getApplicationContext(), validTasks);
+        allTasks.postValue(validTasks);
     }
+
 
     public void insertar_tarea(tarea task) {
         List<tarea> currentTasks = allTasks.getValue();
@@ -31,6 +55,19 @@ public class repositorioTarea {
             guardar(currentTasks);
         }
     }
+    public void eliminar_tarea_por_id(int taskId) {
+        List<tarea> currentTasks = allTasks.getValue();
+        if (currentTasks != null) {
+            for (tarea task : currentTasks) {
+                if (task.getId() == taskId) {
+                    currentTasks.remove(task);
+                    guardar(currentTasks);
+                    break;
+                }
+            }
+        }
+    }
+
 
     public void actualizar_tarea(tarea task) {
         List<tarea> currentTasks = allTasks.getValue();

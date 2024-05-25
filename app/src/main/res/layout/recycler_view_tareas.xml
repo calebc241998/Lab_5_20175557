@@ -14,7 +14,7 @@
         android:textSize="18sp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/buttonEdit"
+        app:layout_constraintEnd_toStartOf="@id/buttonDelete"
         app:layout_constraintBottom_toTopOf="@id/textViewDescription" />
 
     <TextView
@@ -33,16 +33,26 @@
         android:text="Fecha"
         app:layout_constraintTop_toBottomOf="@id/textViewDescription"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/textViewDueTime"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewDueTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hora"
+        app:layout_constraintTop_toBottomOf="@id/textViewDescription"
+        app:layout_constraintStart_toEndOf="@id/textViewDueDate"
+        app:layout_constraintEnd_toStartOf="@id/buttonDelete"
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <ImageButton
-        android:id="@+id/buttonEdit"
-        android:layout_width="59dp"
-        android:layout_height="56dp"
+        android:id="@+id/buttonDelete"
+        android:layout_width="34dp"
+        android:layout_height="37dp"
         android:layout_margin="8dp"
-        android:contentDescription="@string/edit_task"
-        android:src="@drawable/icon_edit"
+        android:contentDescription="@string/delete_task"
+        android:src="@drawable/ic_delete"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
