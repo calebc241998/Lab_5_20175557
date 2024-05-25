@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Lab_5_20175557</string>
+    <string name="password" />
+    <string name="log_in" />
+    <string name="username" />
+    <string name="edit_task" />
+    <string name="add_task" />
+</resources>
