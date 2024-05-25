@@ -9,7 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-    private static final String UNIVERSITY_CODE = "123456"; // Replace with your university code
+    private static final String UNIVERSITY_CODE = "20175557"; // Replace with your university code
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
